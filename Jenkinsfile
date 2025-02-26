@@ -54,7 +54,7 @@ pipeline {
         stage('Deploy Containers') {
             steps {
                 script {
-                    sh 'docker-compose up -d'
+                    sh 'docker compose up -d'
                     // ⚠️ Vérifie que ton `docker-compose.yml` est bien configuré pour lancer frontend et backend
                 }
             }
