@@ -17,9 +17,6 @@ services:
     networks:
       - app-network
     restart: always
-    environment:
-      # Si tu as besoin d'ajouter des variables d'environnement pour le frontend, fais-le ici
-      # EX: API_URL: "http://backend-service:3000"
 
   backend:
     build:
@@ -31,7 +28,5 @@ services:
     networks:
       - app-network
     restart: always
-    environment:
-      # Si tu as besoin d'ajouter des variables d'environnement pour le backend, fais-le ici
-      # EX: DB_HOST: "mongodb://db-service:27017"
+    
 
