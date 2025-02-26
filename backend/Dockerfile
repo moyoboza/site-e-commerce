@@ -5,16 +5,18 @@ FROM node:14
 # Créer un répertoire de travail dans le conteneur
 WORKDIR /app
 
-# Copier le fichier package.json et installer les dépendances
+# Copier le fichier package.json et package-lock.json pour installer les dépendances
 COPY package.json package-lock.json ./
+
+# Installer les dépendances
 RUN npm install
 
-# Copier tous les fichiers de ton backend dans le conteneur
+# Copier tous les fichiers du backend dans le conteneur
 COPY . .
 
-# Exposer le port du serveur
+# Exposer le port du serveur (ici le port 3000)
 EXPOSE 3000
 
-# Commande pour démarrer le serveur
-CMD ["node", "server.js"]
+# Exécuter les tests Jest lorsque le conteneur démarre
+CMD ["npm", "test"]
 

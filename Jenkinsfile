@@ -34,7 +34,7 @@ pipeline {
         stage('Run Tests (Backend avec Jest)') {
             steps {
                 script {
-                    sh 'docker run --rm $BACK_IMAGE:$DOCKER_TAG npm install && npm test -- --ci --coverage'
+                    sh 'docker run --rm $BACK_IMAGE:$DOCKER_TAG npm test -- --ci --coverage --passWithNoTests --forceExit'
                 }
             }
         }
